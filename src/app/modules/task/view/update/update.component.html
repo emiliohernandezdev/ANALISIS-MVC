@@ -1,0 +1,16 @@
+<h3>Actualizar tarea:</h3>
+<form>
+    <div class="mb-3">
+        <label for="taskTitle" class="form-label">Titulo</label>
+        <input type="text" class="form-control" id="taskTitle" [(ngModel)]="task.title" name="title">
+    </div>
+
+    <div class="mb-3">
+        <select class="form-select" [(ngModel)]="task.done" name="done">
+            <option [value]="true">Completada</option>
+            <option [value]="false">No completada</option>
+          </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="saveChanges()">Actualizar</button>
+</form>

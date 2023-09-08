@@ -1,0 +1,9 @@
+<h3>Crear tarea:</h3>
+<form>
+    <div class="mb-3">
+        <label for="taskTitle" class="form-label">Titulo</label>
+        <input type="text" class="form-control" id="taskTitle" [(ngModel)]="task.title" name="title">
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="create()">Guardar</button>
+</form>

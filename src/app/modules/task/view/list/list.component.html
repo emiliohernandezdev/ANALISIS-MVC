@@ -1,0 +1,32 @@
+<h3>Listado de tareas:</h3>
+
+<a type="button" class="btn btn-outline-primary" routerLink="/create">Agregar nueva tarea</a>
+<br/>
+<table class="table table-primary table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Completada</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let t of tasks">
+            <td>{{ t.id }}</td>
+            <td>{{ t.title }}</td>
+            <td>
+                <span *ngIf="t.done; else notDone" class="badge bg-success">Completada</span>
+                <ng-template #notDone>
+                    <span class="badge bg-danger">No completada</span>
+                </ng-template>
+            </td>
+            <td>
+                <button class="btn btn-warning" *ngIf="t.done == true" (click)="completeTask(t)">Incompleta</button>&nbsp;
+                <button class="btn btn-success" *ngIf="t.done == false" (click)="completeTask(t)">Completar</button>&nbsp;
+                <button class="btn btn-primary" (click)="updateTask(t)">Editar</button>&nbsp;
+                <button class="btn btn-danger" (click)="deleteTask(t)">Eliminar</button>&nbsp;
+            </td>
+        </tr>
+    </tbody>
+</table>
